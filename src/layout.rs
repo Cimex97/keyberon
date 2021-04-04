@@ -295,7 +295,7 @@ impl Layout {
             Some(l) => l,
         };
         for l in iter {
-            layer += l;
+            layer = l;
         }
         layer
     }
