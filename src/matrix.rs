@@ -76,14 +76,14 @@ impl<C, R> Matrix<C, R> {
         self.rows
             .into_iter()
             .map(|r| {
-                r.set_low()?;
+                r.set_high()?;
                 let col = cols
                     .into_iter()
-                    .map(|c| c.is_low())
+                    .map(|c| c.is_high())
                     .collect::<Result<Vec<_, C::Len>, E>>()?
                     .into_iter()
                     .collect();
-                r.set_high()?;
+                r.set_low()?;
                 Ok(col)
             })
             .collect::<Result<Vec<_, R::Len>, E>>()
